@@ -9,15 +9,17 @@ $(function () {
   // 右に移動
   $('.js-item-to-right').on('click', function () {
     // 選択されているoption(option:selected)を取得
-    const selected = $('#none-selected-items option:selected').val();
+    const val = $('#none-selected-items option:selected').val();
     const text = $('#none-selected-items option:selected').text();
-    if (!selected) {
+    console.log(selected);
+    console.log(text);
+    if (!val) {
       return;
     }
     // 選択を解除
     $('#none-selected-items option').attr('selected', false);
     // 選択済みのセレクトボックスに移動
-    $selected.append(`<option value=${selected}>${text}</option>`);
+    $selected.append(`<option value=${val}>${text}</option>`);
     $('#none-selected-items option:selected').remove();
   });
 
@@ -34,15 +36,15 @@ $(function () {
   // 左に移動
   $('.js-item-to-left').on('click', function () {
     // 選択されているoption(option:selected)を取得
-    const selected = $('#selected-items option:selected').val();
+    const val = $('#selected-items option:selected').val();
     const text = $('#selected-items option:selected').text();
-    if (!selected) {
+    if (!val) {
       return;
     }
     // 選択を解除
     $('#selected-items > option').attr('selected', false);
     // 未選択のセレクトボックスに移動
-    $noneSelected.append(`<option value=${selected}>${text}</option>`);
+    $noneSelected.append(`<option value=${val}>${text}</option>`);
     $('#selected-items > option:selected').remove();
   });
 
