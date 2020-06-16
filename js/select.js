@@ -11,8 +11,7 @@ $(function () {
     // 選択されているoption(option:selected)を取得
     const val = $('#none-selected-items option:selected').val();
     const text = $('#none-selected-items option:selected').text();
-    console.log(selected);
-    console.log(text);
+
     if (!val) {
       return;
     }
@@ -26,7 +25,7 @@ $(function () {
   // 右に全て移動
   $('.js-item-to-right-all').on('click', function () {
     // 全てのoptionを取得
-    const getOption = $('#none-selected-items  option');
+    const getOption = $('#none-selected-items option');
     // 選択済みのセレクトボックスに移動
     getOption.map((index, item) => {
       $selected.append(item);
@@ -51,7 +50,7 @@ $(function () {
   // 左に全て移動
   $('.js-item-to-left-all').on('click', function () {
     // 全てのoptionを取得
-    const getOption = $('#selected-items  option');
+    const getOption = $('#selected-items option');
     // 未選択のセレクトボックスに移動
     getOption.map((index, item) => {
       $noneSelected.append(item);
