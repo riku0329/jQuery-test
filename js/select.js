@@ -9,51 +9,47 @@ $(function () {
   // 右に移動
   $('.js-item-to-right').on('click', function () {
     // 選択されているoption(option:selected)を取得
-    const val = $('#none-selected-items option:selected').val();
-    const text = $('#none-selected-items option:selected').text();
-
+    const val = $noneSelected.find('option:selected');
+    console.log(val);
     if (!val) {
       return;
     }
     // 選択を解除
-    $('#none-selected-items option').attr('selected', false);
+    $noneSelected.find('option:selected').attr('selected', false);
     // 選択済みのセレクトボックスに移動
-    $selected.append(`<option value=${val}>${text}</option>`);
-    $('#none-selected-items option:selected').remove();
+    $selected.append(val);
+    $noneSelected.find('option:selected').remove();
   });
 
   // 右に全て移動
   $('.js-item-to-right-all').on('click', function () {
     // 全てのoptionを取得
-    const getOption = $('#none-selected-items option');
+    const val = $noneSelected.children();
+    console.log(val);
     // 選択済みのセレクトボックスに移動
-    getOption.map((index, item) => {
-      $selected.append(item);
-    });
+    $selected.append(val);
   });
 
   // 左に移動
   $('.js-item-to-left').on('click', function () {
     // 選択されているoption(option:selected)を取得
-    const val = $('#selected-items option:selected').val();
-    const text = $('#selected-items option:selected').text();
+    const val = $selected.find('option:selected');
+    console.log(val);
     if (!val) {
       return;
     }
     // 選択を解除
-    $('#selected-items > option').attr('selected', false);
-    // 未選択のセレクトボックスに移動
-    $noneSelected.append(`<option value=${val}>${text}</option>`);
-    $('#selected-items > option:selected').remove();
+    $selected.find('option:selected').attr('selected', false);
+    // 選択済みのセレクトボックスに移動
+    $noneSelected.append(val);
+    $selected.find('option:selected').remove();
   });
 
   // 左に全て移動
   $('.js-item-to-left-all').on('click', function () {
     // 全てのoptionを取得
-    const getOption = $('#selected-items option');
+    const val = $selected.children();
     // 未選択のセレクトボックスに移動
-    getOption.map((index, item) => {
-      $noneSelected.append(item);
-    });
+    $noneSelected.append(val);
   });
 });

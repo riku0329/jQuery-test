@@ -16,6 +16,5 @@ $(function () {
     const offset = $('.navbar').outerHeight() + 13
     // スムーススクロールを実行
     $('body,html').animate({ scrollTop: position - offset }, speed, 'swing');
-    return false;
   });
 });
